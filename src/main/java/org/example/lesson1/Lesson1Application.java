@@ -3,6 +3,7 @@ package org.example.lesson1;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 import org.example.lesson1.entities.Book;
+import org.example.lesson1.entities.Recipe;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -23,10 +24,11 @@ public class Lesson1Application implements CommandLineRunner {
         }*/
         Gson gson = new Gson();
         try {
-            FileReader reader = new FileReader("read_file.json");
-            Type typeBook = new TypeToken<ArrayList<Book>>() {}.getType();
-            List<Book> books = gson.fromJson(reader, typeBook);
-            System.out.println(books);
+            FileReader reader = new FileReader("recipe_pho_bo.json");
+            /*Type typeBook = new TypeToken<ArrayList<Book>>() {}.getType();
+            List<Book> books = gson.fromJson(reader, typeBook);*/
+            Recipe recipe = gson.fromJson(reader, Recipe.class);
+            System.out.println(recipe);
 
         } catch (Exception e){
             System.out.println(e.getMessage());
